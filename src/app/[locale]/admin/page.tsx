@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Users, TrendingUp, DollarSign, CalendarCheck } from "lucide-react";
+import { Users, TrendingUp, DollarSign, CalendarCheck, ArrowUpRight } from "lucide-react";
 import { getLeads } from "@/app/actions/leads";
 
 export default function AdminDashboardPage() {
@@ -11,7 +11,7 @@ export default function AdminDashboardPage() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getLeads();
-      setRecentLeads(data.slice(0, 5)); // Show only 5 recent
+      setRecentLeads(data.slice(0, 5));
       
       const total = data.length;
       const converted = data.filter(l => l.status === "Converted").length;
@@ -20,7 +20,7 @@ export default function AdminDashboardPage() {
       setStats({
         total,
         converted,
-        revenue: converted * 15000, // Dummy average
+        revenue: converted * 15000,
         active
       });
     };
@@ -28,69 +28,82 @@ export default function AdminDashboardPage() {
   }, []);
 
   const statsDisplay = [
-    { title: "Total Leads", value: stats.total.toString(), increase: "+12%", icon: <Users className="text-blue-500" size={24} /> },
-    { title: "Converted Quotes", value: stats.converted.toString(), increase: "+8%", icon: <TrendingUp className="text-orange-500" size={24} /> },
-    { title: "Revenue (Est)", value: `₹${(stats.revenue / 100000).toFixed(1)}L`, increase: "+24%", icon: <DollarSign className="text-green-500" size={24} /> },
-    { title: "Active Moves", value: stats.active.toString(), increase: "+2", icon: <CalendarCheck className="text-purple-500" size={24} /> },
+    { title: "Total Leads", value: stats.total.toString(), change: "+12%", icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
+    { title: "Converted", value: stats.converted.toString(), change: "+8%", icon: TrendingUp, color: "text-emerald-600", bg: "bg-emerald-50" },
+    { title: "Revenue (Est)", value: `₹${(stats.revenue / 100000).toFixed(1)}L`, change: "+24%", icon: DollarSign, color: "text-violet-600", bg: "bg-violet-50" },
+    { title: "Active Moves", value: stats.active.toString(), change: "+2", icon: CalendarCheck, color: "text-amber-600", bg: "bg-amber-50" },
   ];
+
+  const getStatusStyles = (status: string) => {
+    switch (status) {
+      case "New": return "bg-blue-50 text-blue-700 border-blue-200/60";
+      case "Contacted": return "bg-amber-50 text-amber-700 border-amber-200/60";
+      case "Converted": return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
+      default: return "bg-zinc-50 text-zinc-700 border-zinc-200/60";
+    }
+  };
 
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-slate-800">Dashboard Overview</h1>
-        <p className="text-slate-500 mt-1">Welcome back, Admin. Here's what's happening today.</p>
+        <h1 className="text-2xl font-bold text-zinc-950 tracking-tight">Dashboard</h1>
+        <p className="text-zinc-500 mt-1 text-sm font-medium">Welcome back. Here's what's happening today.</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {statsDisplay.map((stat, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          <div key={i} className="bg-white p-6 rounded-2xl border border-zinc-200/60">
             <div className="flex justify-between items-start mb-4">
-              <div className="p-3 bg-slate-50 rounded-xl">
-                {stat.icon}
+              <div className={`w-10 h-10 ${stat.bg} rounded-xl flex items-center justify-center`}>
+                <stat.icon size={20} className={stat.color} strokeWidth={2} />
               </div>
-              <span className="text-sm font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-lg">
-                {stat.increase}
+              <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600">
+                <ArrowUpRight size={14} />
+                {stat.change}
               </span>
             </div>
-            <h3 className="text-slate-500 text-sm font-medium">{stat.title}</h3>
-            <div className="text-2xl font-bold text-slate-800 mt-1">{stat.value}</div>
+            <p className="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-1">{stat.title}</p>
+            <p className="text-2xl font-bold text-zinc-950 tracking-tight">{stat.value}</p>
           </div>
         ))}
       </div>
 
       {/* Recent Leads Table */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-        <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-          <h2 className="text-lg font-bold text-slate-800">Recent Quote Requests</h2>
-          <button className="text-sm font-medium text-blue-600 hover:text-blue-700">View All</button>
+      <div className="bg-white rounded-2xl border border-zinc-200/60 overflow-hidden">
+        <div className="px-6 py-5 border-b border-zinc-100 flex justify-between items-center">
+          <h2 className="text-base font-bold text-zinc-950 tracking-tight">Recent Quote Requests</h2>
+          <button className="text-xs font-semibold text-zinc-500 hover:text-zinc-900 transition-colors uppercase tracking-widest">View All</button>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50 text-slate-500 text-sm">
-                <th className="px-6 py-4 font-medium">Lead ID</th>
-                <th className="px-6 py-4 font-medium">Customer</th>
-                <th className="px-6 py-4 font-medium">Route</th>
-                <th className="px-6 py-4 font-medium">Date</th>
-                <th className="px-6 py-4 font-medium">Est. Amount</th>
-                <th className="px-6 py-4 font-medium">Status</th>
+              <tr className="border-b border-zinc-100">
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">ID</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Customer</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Route</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Date</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Amount</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-zinc-50">
+              {recentLeads.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="px-6 py-16 text-center">
+                    <p className="text-sm font-medium text-zinc-400">No leads yet. They will appear here when customers submit quote requests.</p>
+                  </td>
+                </tr>
+              )}
               {recentLeads.map((lead, i) => (
-                <tr key={i} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 text-sm font-medium text-slate-800">{lead.id}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-slate-800">{lead.name}</td>
-                  <td className="px-6 py-4 text-sm text-slate-600">{lead.route}</td>
-                  <td className="px-6 py-4 text-sm text-slate-600">{lead.date}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-slate-800">{lead.amount}</td>
+                <tr key={i} className="hover:bg-zinc-50/50 transition-colors">
+                  <td className="px-6 py-4 text-sm font-medium text-zinc-950">{lead.id}</td>
+                  <td className="px-6 py-4 text-sm font-medium text-zinc-700">{lead.name}</td>
+                  <td className="px-6 py-4 text-sm text-zinc-500">{lead.route}</td>
+                  <td className="px-6 py-4 text-sm text-zinc-500">{lead.date}</td>
+                  <td className="px-6 py-4 text-sm font-medium text-zinc-950">{lead.amount}</td>
                   <td className="px-6 py-4">
-                    <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                      lead.status === 'New' ? 'bg-blue-100 text-blue-700' :
-                      lead.status === 'Contacted' ? 'bg-orange-100 text-orange-700' :
-                      'bg-green-100 text-green-700'
-                    }`}>
+                    <span className={`inline-flex px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest rounded-lg border ${getStatusStyles(lead.status)}`}>
                       {lead.status}
                     </span>
                   </td>

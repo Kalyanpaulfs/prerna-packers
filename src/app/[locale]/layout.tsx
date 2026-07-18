@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -9,7 +9,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingButtons } from "@/components/layout/FloatingButtons";
 
-const inter = Inter({ subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 
 export const metadata: Metadata = {
   title: {
@@ -36,8 +36,8 @@ export default async function RootLayout({
   const messages = await getMessages({ locale: resolvedParams.locale });
 
   return (
-    <html lang={resolvedParams.locale}>
-      <body className={inter.className}>
+    <html lang={resolvedParams.locale} className="scroll-smooth">
+      <body className={`${jakarta.className} bg-white text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900`}>
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <Navbar />

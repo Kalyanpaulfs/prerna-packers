@@ -14,42 +14,46 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-3xl shadow-xl overflow-hidden">
-        <div className="bg-blue-950 p-8 text-center">
-          <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Lock className="text-white" size={32} />
+    <div className="min-h-screen bg-zinc-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
+      
+      <div className="max-w-sm w-full relative z-10">
+        {/* Logo */}
+        <div className="text-center mb-8">
+          <div className="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
+            P
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Admin Portal</h1>
-          <p className="text-blue-200 text-sm">Sign in to manage your website</p>
+          <h1 className="text-2xl font-bold text-zinc-950 tracking-tight">Welcome back</h1>
+          <p className="text-sm text-zinc-500 font-medium mt-1">Sign in to the admin panel</p>
         </div>
-        
-        <div className="p-8">
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Email Address</label>
+
+        {/* Form */}
+        <div className="bg-white p-8 rounded-2xl border border-zinc-200/60 shadow-sm">
+          <form onSubmit={handleLogin} className="space-y-5">
+            <div>
+              <label className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Email</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
                 <input 
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
                   placeholder="admin@prernapackers.com"
                   required
                 />
               </div>
             </div>
             
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Password</label>
+            <div>
+              <label className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Password</label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
                 <input 
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
                   placeholder="••••••••"
                   required
                 />
@@ -58,12 +62,16 @@ export default function AdminLoginPage() {
             
             <button 
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 transition-colors shadow-lg shadow-blue-600/20"
+              className="w-full bg-zinc-950 hover:bg-zinc-800 text-white py-3.5 rounded-xl font-semibold flex justify-center items-center gap-2 transition-colors text-sm"
             >
-              Secure Login <ArrowRight size={20} />
+              Sign in <ArrowRight size={16} />
             </button>
           </form>
         </div>
+        
+        <p className="text-center text-xs text-zinc-400 font-medium mt-6">
+          Protected area. Authorized personnel only.
+        </p>
       </div>
     </div>
   );

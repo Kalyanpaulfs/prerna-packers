@@ -7,134 +7,97 @@ export const metadata: Metadata = {
   description: "Get in touch with Prerna Packers and Movers for premium relocation services. Call us or request a free quote today.",
 };
 
+const contactCards = [
+  { icon: Phone, title: "Call Us", lines: ["+91 98765 43210", "+91 98765 43211"] },
+  { icon: Mail, title: "Email Us", lines: ["hello@prernapackers.com", "sales@prernapackers.com"] },
+  { icon: MapPin, title: "Head Office", lines: ["PRERNA Relocation", "Munger, Bihar, India 811201"] },
+  { icon: Clock, title: "Business Hours", lines: ["Mon — Sat: 9:00 AM – 8:00 PM", "Sunday: Closed"] },
+];
+
 export default function ContactPage() {
   return (
     <>
       <PageHeader 
         title="Contact Us" 
-        subtitle="We're here to help! Reach out to us for any queries or to request a free survey."
+        subtitle="Have questions or need a quote? We're here to help."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
       
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      {/* Contact Cards */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            {contactCards.map((card, i) => (
+              <div key={i} className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100">
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-4 border border-zinc-200/60">
+                  <card.icon size={20} className="text-zinc-700" strokeWidth={2} />
+                </div>
+                <h3 className="text-base font-bold text-zinc-950 mb-3 tracking-tight">{card.title}</h3>
+                {card.lines.map((line, j) => (
+                  <p key={j} className="text-sm text-zinc-500 font-medium">{line}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Form */}
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-zinc-950 mb-4 tracking-tight">Send us a message</h2>
+              <p className="text-zinc-500 font-medium">Fill out the form below and our team will respond within 24 hours.</p>
+            </div>
             
-            {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-blue-950 mb-6">Get in Touch</h3>
-                <p className="text-slate-600 mb-8">
-                  Have questions about our moving services? Need a customized quote? Our customer support team is ready to assist you.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
-                    <Phone size={24} />
-                  </div>
+            <div className="bg-white p-8 md:p-10 rounded-2xl border border-zinc-200/60">
+              <form className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <h4 className="font-semibold text-blue-950 text-lg">Call Us</h4>
-                    <p className="text-slate-600">+91 98765 43210</p>
-                    <p className="text-slate-600">+91 98765 43211</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-950 text-lg">Email Us</h4>
-                    <p className="text-slate-600">support@prernapackers.com</p>
-                    <p className="text-slate-600">sales@prernapackers.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-950 text-lg">Head Office</h4>
-                    <p className="text-slate-600">
-                      PRERNA Packers & Movers<br/>
-                      Munger, Bihar,<br/>
-                      India - 811201
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm shrink-0">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-blue-950 text-lg">Business Hours</h4>
-                    <p className="text-slate-600">Monday - Saturday: 9:00 AM - 8:00 PM</p>
-                    <p className="text-slate-600">Sunday: Closed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100">
-                <h3 className="text-2xl font-bold text-blue-950 mb-6">Send us a Message</h3>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-slate-700">Full Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium text-slate-700">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        id="phone" 
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-slate-700">Email Address</label>
+                    <label htmlFor="name" className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Full Name</label>
                     <input 
-                      type="email" 
-                      id="email" 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="john@example.com"
+                      type="text" 
+                      id="name" 
+                      className="w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
+                      placeholder="Your name"
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-slate-700">Your Message</label>
-                    <textarea 
-                      id="message" 
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                      placeholder="How can we help you today?"
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      className="w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
+                      placeholder="+91 98765 43210"
                     />
                   </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className="w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
+                    placeholder="you@example.com"
+                  />
+                </div>
 
-                  <button 
-                    type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl transition-colors shadow-lg shadow-orange-500/20"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
+                <div>
+                  <label htmlFor="message" className="block text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Your Message</label>
+                  <textarea 
+                    id="message" 
+                    rows={5}
+                    className="w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium resize-none"
+                    placeholder="How can we help you?"
+                  />
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full bg-zinc-950 hover:bg-zinc-800 text-white font-semibold py-4 rounded-xl transition-colors text-sm"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
-
           </div>
         </div>
       </section>

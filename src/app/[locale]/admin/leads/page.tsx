@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, Filter, MoreVertical, Edit, Trash2 } from "lucide-react";
+import { Search, Filter, Edit, Trash2 } from "lucide-react";
 import { getLeads, updateLeadStatus } from "@/app/actions/leads";
 
 export default function LeadsPage() {
@@ -24,84 +24,109 @@ export default function LeadsPage() {
   };
 
   const filteredLeads = activeTab === "All" ? leads : leads.filter(l => l.status === activeTab);
+  const tabs = ["All", "New", "Contacted", "Converted", "Lost"];
+
+  const getStatusStyles = (status: string) => {
+    switch (status) {
+      case "New": return "bg-blue-50 text-blue-700 border-blue-200/60";
+      case "Contacted": return "bg-amber-50 text-amber-700 border-amber-200/60";
+      case "Converted": return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
+      case "Lost": return "bg-red-50 text-red-700 border-red-200/60";
+      default: return "bg-zinc-50 text-zinc-700 border-zinc-200/60";
+    }
+  };
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Leads & Quotes CRM</h1>
-          <p className="text-slate-500 mt-1 text-sm">Manage all customer inquiries and generated quotes.</p>
+          <h1 className="text-2xl font-bold text-zinc-950 tracking-tight">Leads & Quotes</h1>
+          <p className="text-zinc-500 mt-1 text-sm font-medium">Manage all customer inquiries and generated quotes.</p>
         </div>
         
         <div className="flex items-center gap-3 w-full md:w-auto">
           <div className="relative flex-1 md:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" size={16} />
             <input 
               type="text" 
               placeholder="Search leads..." 
-              className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
             />
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">
-            <Filter size={16} /> Filter
+          <button className="flex items-center gap-2 px-4 py-2.5 bg-white border border-zinc-200 rounded-xl text-sm font-medium text-zinc-700 hover:bg-zinc-50 transition-colors">
+            <Filter size={14} /> Filter
           </button>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-2 border-b border-slate-200">
-        {["All", "New", "Contacted", "Converted", "Lost"].map((tab) => (
+      <div className="flex gap-1 border-b border-zinc-200">
+        {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-colors relative ${
               activeTab === tab 
-                ? "bg-blue-950 text-white" 
-                : "text-slate-600 hover:bg-slate-100"
+                ? "text-zinc-950" 
+                : "text-zinc-400 hover:text-zinc-700"
             }`}
           >
             {tab}
+            {activeTab === tab && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-950 rounded-full" />
+            )}
           </button>
         ))}
       </div>
 
-      {/* Leads Table */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+      {/* Table */}
+      <div className="bg-white rounded-2xl border border-zinc-200/60 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-slate-50 text-slate-500 text-sm border-b border-slate-100">
-                <th className="px-6 py-4 font-medium">Lead ID</th>
-                <th className="px-6 py-4 font-medium">Customer Info</th>
-                <th className="px-6 py-4 font-medium">Route & Property</th>
-                <th className="px-6 py-4 font-medium">Moving Date</th>
-                <th className="px-6 py-4 font-medium">Est. Value</th>
-                <th className="px-6 py-4 font-medium">Status</th>
-                <th className="px-6 py-4 font-medium text-right">Actions</th>
+              <tr className="border-b border-zinc-100">
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">ID</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Customer</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Route & Property</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Moving Date</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Est. Value</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Status</th>
+                <th className="px-6 py-3 text-[10px] font-bold text-zinc-400 uppercase tracking-widest text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-zinc-50">
+              {filteredLeads.length === 0 && (
+                <tr>
+                  <td colSpan={7} className="px-6 py-20 text-center">
+                    <div className="text-zinc-300 mb-3">
+                      <Search size={40} className="mx-auto" strokeWidth={1.5} />
+                    </div>
+                    <p className="text-sm font-semibold text-zinc-400">
+                      {isLoading ? "Loading leads..." : "No leads found"}
+                    </p>
+                    <p className="text-xs text-zinc-400 mt-1">
+                      {isLoading ? "" : "Leads will appear here when customers request quotes."}
+                    </p>
+                  </td>
+                </tr>
+              )}
               {filteredLeads.map((lead, i) => (
-                <tr key={i} className="hover:bg-slate-50 transition-colors group">
-                  <td className="px-6 py-4 text-sm font-bold text-blue-600">{lead.id}</td>
+                <tr key={i} className="hover:bg-zinc-50/50 transition-colors group">
+                  <td className="px-6 py-4 text-sm font-medium text-zinc-950">{lead.id}</td>
                   <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-slate-800">{lead.name}</div>
-                    <div className="text-xs text-slate-500">{lead.phone}</div>
+                    <div className="text-sm font-medium text-zinc-950">{lead.name}</div>
+                    <div className="text-xs text-zinc-400 font-medium mt-0.5">{lead.phone}</div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-slate-800">{lead.route}</div>
-                    <div className="text-xs text-slate-500">{lead.property}</div>
+                    <div className="text-sm font-medium text-zinc-700">{lead.route}</div>
+                    <div className="text-xs text-zinc-400 font-medium mt-0.5">{lead.property}</div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-600">{lead.date}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-slate-800">{lead.amount}</td>
+                  <td className="px-6 py-4 text-sm text-zinc-500 font-medium">{lead.date}</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-zinc-950">{lead.amount}</td>
                   <td className="px-6 py-4">
                     <select 
-                      className={`text-xs font-semibold rounded-full px-3 py-1 outline-none appearance-none cursor-pointer border-r-8 border-transparent ${
-                        lead.status === 'New' ? 'bg-blue-100 text-blue-700' :
-                        lead.status === 'Contacted' ? 'bg-orange-100 text-orange-700' :
-                        lead.status === 'Converted' ? 'bg-green-100 text-green-700' :
-                        'bg-red-100 text-red-700'
-                      }`}
+                      className={`text-[10px] font-bold uppercase tracking-widest rounded-lg px-2.5 py-1.5 outline-none appearance-none cursor-pointer border ${getStatusStyles(lead.status)}`}
                       value={lead.status}
                       onChange={(e) => handleStatusChange(lead.id, e.target.value)}
                     >
@@ -112,12 +137,12 @@ export default function LeadsPage() {
                     </select>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
-                        <Edit size={16} />
+                    <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button className="p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 rounded-lg transition-colors">
+                        <Edit size={14} />
                       </button>
-                      <button className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
-                        <Trash2 size={16} />
+                      <button className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                        <Trash2 size={14} />
                       </button>
                     </div>
                   </td>
