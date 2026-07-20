@@ -9,16 +9,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-zinc-950 font-bold text-lg">
-                P
+            <Link href="/" className="flex items-center gap-3 mb-6 group">
+              <div className="relative w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-white/20 blur-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300" />
+                <span className="relative font-black text-xl italic tracking-tighter pr-1">P</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-white leading-none tracking-tight">
+                <span className="font-extrabold text-xl text-white leading-none tracking-tight">
                   PRERNA
                 </span>
-                <span className="text-[10px] text-zinc-500 font-medium uppercase tracking-[0.2em] mt-1">
-                  Relocation
+                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-[0.2em] mt-1">
+                  Packers & Movers
                 </span>
               </div>
             </Link>
@@ -63,7 +64,7 @@ export function Footer() {
                 <div className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center shrink-0">
                   <MapPin size={14} className="text-white" />
                 </div>
-                <span className="text-sm font-medium leading-relaxed">HQ: PRERNA Relocation<br/>Munger, Bihar, India 811201</span>
+                <span className="text-sm font-medium leading-relaxed">HQ: Prerna Packers & Movers<br/>Munger, Bihar, India 811201</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center shrink-0">
@@ -83,7 +84,7 @@ export function Footer() {
 
         <div className="border-t border-zinc-900 mt-20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm font-medium">
-            &copy; {new Date().getFullYear()} Prerna Relocation. All rights reserved.
+            &copy; {new Date().getFullYear()} Prerna Packers & Movers. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm font-medium">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

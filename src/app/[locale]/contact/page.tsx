@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const contactCards = [
   { icon: Phone, title: "Call Us", lines: ["+91 72799 19201"] },
   { icon: Mail, title: "Email Us", lines: ["hello@prernapackers.com", "sales@prernapackers.com"] },
-  { icon: MapPin, title: "Head Office", lines: ["PRERNA Relocation", "Munger, Bihar, India 811201"] },
+  { icon: MapPin, title: "Head Office", lines: ["Prerna Packers & Movers", "Munger, Bihar, India 811201"] },
   { icon: Clock, title: "Business Hours", lines: ["Mon — Sat: 9:00 AM – 8:00 PM", "Sunday: Closed"] },
 ];
 
