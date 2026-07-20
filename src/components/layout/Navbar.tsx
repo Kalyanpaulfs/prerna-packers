@@ -82,10 +82,10 @@ export function Navbar() {
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center gap-4">
                 <a 
-                  href="tel:+919876543210"
+                  href="tel:+917279919201"
                   className="text-sm font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
                 >
-                  +91 98765 43210
+                  +91 72799 19201
                 </a>
                 <Link
                   href="/quote"
@@ -144,10 +144,10 @@ export function Navbar() {
 
             <div className="p-6 border-t border-zinc-100 bg-zinc-50/50 flex flex-col gap-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+917279919201"
                 className="text-center font-medium text-zinc-900 py-3"
               >
-                +91 98765 43210
+                +91 72799 19201
               </a>
               <Link
                 href="/quote"

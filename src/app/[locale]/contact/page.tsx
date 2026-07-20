@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const contactCards = [
-  { icon: Phone, title: "Call Us", lines: ["+91 98765 43210", "+91 98765 43211"] },
+  { icon: Phone, title: "Call Us", lines: ["+91 72799 19201"] },
   { icon: Mail, title: "Email Us", lines: ["hello@prernapackers.com", "sales@prernapackers.com"] },
   { icon: MapPin, title: "Head Office", lines: ["PRERNA Relocation", "Munger, Bihar, India 811201"] },
   { icon: Clock, title: "Business Hours", lines: ["Mon — Sat: 9:00 AM – 8:00 PM", "Sunday: Closed"] },
@@ -65,7 +65,7 @@ export default function ContactPage() {
                       type="tel" 
                       id="phone" 
                       className="w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none text-sm font-medium"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 72799 19201"
                     />
                   </div>
                 </div>

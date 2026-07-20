@@ -69,7 +69,7 @@ export function Footer() {
                 <div className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center shrink-0">
                   <Phone size={14} className="text-white" />
                 </div>
-                <span className="text-sm font-medium">+91 98765 43210</span>
+                <span className="text-sm font-medium">+91 72799 19201</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center shrink-0">
