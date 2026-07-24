@@ -87,7 +87,7 @@ export function QuoteCalculator() {
                 className="w-full pl-12 pr-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none"
                 placeholder="Enter city, state or pincode"
               />
-              {errors.pickup && <p className="text-red-500 text-xs font-medium mt-2">{errors.pickup.message}</p>}
+              {errors.pickup && <p className="text-blue-500 text-xs font-medium mt-2">{errors.pickup.message}</p>}
             </div>
             <button type="button" onClick={nextStep} className="w-full bg-zinc-950 text-white py-4 rounded-xl font-semibold flex justify-center items-center gap-2 hover:bg-zinc-800 transition-colors">
               Continue <ArrowRight size={18} />
@@ -110,7 +110,7 @@ export function QuoteCalculator() {
                 className="w-full pl-12 pr-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none"
                 placeholder="Enter city, state or pincode"
               />
-              {errors.destination && <p className="text-red-500 text-xs font-medium mt-2">{errors.destination.message}</p>}
+              {errors.destination && <p className="text-blue-500 text-xs font-medium mt-2">{errors.destination.message}</p>}
             </div>
             <div className="flex gap-3">
               <button type="button" onClick={prevStep} className="px-6 bg-white border border-zinc-200 text-zinc-700 py-4 rounded-xl font-semibold hover:bg-zinc-50 transition-colors">Back</button>
@@ -139,7 +139,7 @@ export function QuoteCalculator() {
               ))}
             </div>
             <input type="hidden" {...register("propertyType")} />
-            {errors.propertyType && <p className="text-red-500 text-xs font-medium">{errors.propertyType.message}</p>}
+            {errors.propertyType && <p className="text-blue-500 text-xs font-medium">{errors.propertyType.message}</p>}
             
             <div className="flex gap-3">
               <button type="button" onClick={prevStep} className="px-6 bg-white border border-zinc-200 text-zinc-700 py-4 rounded-xl font-semibold hover:bg-zinc-50 transition-colors">Back</button>
@@ -162,7 +162,7 @@ export function QuoteCalculator() {
                 {...register("movingDate")}
                 className="w-full px-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none"
               />
-              {errors.movingDate && <p className="text-red-500 text-xs font-medium">{errors.movingDate.message}</p>}
+              {errors.movingDate && <p className="text-blue-500 text-xs font-medium">{errors.movingDate.message}</p>}
             </div>
             <div className="flex gap-3">
               <button type="button" onClick={prevStep} className="px-6 bg-white border border-zinc-200 text-zinc-700 py-4 rounded-xl font-semibold hover:bg-zinc-50 transition-colors">Back</button>
@@ -218,7 +218,7 @@ export function QuoteCalculator() {
                   className="w-full px-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none"
                   placeholder="Full Name"
                 />
-                {errors.name && <p className="text-red-500 text-xs font-medium mt-1">{errors.name.message}</p>}
+                {errors.name && <p className="text-blue-500 text-xs font-medium mt-1">{errors.name.message}</p>}
               </div>
               <div>
                 <input 
@@ -226,7 +226,7 @@ export function QuoteCalculator() {
                   className="w-full px-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-300 focus:ring-4 focus:ring-zinc-100 transition-all outline-none"
                   placeholder="Phone Number"
                 />
-                {errors.phone && <p className="text-red-500 text-xs font-medium mt-1">{errors.phone.message}</p>}
+                {errors.phone && <p className="text-blue-500 text-xs font-medium mt-1">{errors.phone.message}</p>}
               </div>
               <div>
                 <input 

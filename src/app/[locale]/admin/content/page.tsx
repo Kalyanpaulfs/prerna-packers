@@ -100,7 +100,7 @@ export default function ContentPage() {
                       <button className="p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 rounded-lg transition-colors">
                         <Edit size={14} />
                       </button>
-                      <button className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                      <button className="p-2 text-zinc-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
                         <Trash2 size={14} />
                       </button>
                     </div>

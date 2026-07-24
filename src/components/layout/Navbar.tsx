@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 import { Menu, X, ArrowRight, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,48 +32,37 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-xl border-zinc-200/50 py-4 shadow-sm"
-            : "bg-transparent border-transparent py-6"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b ${isScrolled
+          ? "bg-blue-900/95 backdrop-blur-xl border-blue-800/50 py-1 shadow-md"
+          : "bg-blue-900 border-transparent py-2"
+          }`}
       >
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-[1536px] w-full mx-auto px-4 md:px-8 xl:px-12">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-white/20 blur-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300" />
-                <span className="relative font-black text-xl italic tracking-tighter pr-1">P</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-700 leading-none tracking-tight">
-                  PRERNA
-                </span>
-                <span className="text-[10px] text-blue-600 font-bold uppercase tracking-[0.2em] mt-1">
-                  Packers & Movers
-                </span>
+            <Link href="/" className="flex items-center group shrink-0">
+              <div className="relative w-[400px] h-[110px] rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Image src="/prerna-logo-final.png" alt="Prerna Packers Logo" fill className="object-contain" priority />
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <div className="flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-4 xl:gap-6">
+              <div className="flex items-center gap-4 xl:gap-6">
                 {navLinks.map((link) => {
                   const isActive = link.href === "/" ? pathname === "/" : pathname.includes(link.href);
                   return (
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`text-sm font-semibold transition-colors duration-200 relative pb-1 ${
-                        isActive ? "text-blue-600" : "text-zinc-600 hover:text-blue-600"
-                      }`}
+                      className={`text-base font-semibold transition-colors duration-200 relative pb-1 whitespace-nowrap ${isActive ? "text-white" : "text-blue-200 hover:text-white"
+                        }`}
                     >
                       {link.name}
                       {isActive && (
                         <motion.div
                           layoutId="navbar-indicator"
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-white rounded-full"
                         />
                       )}
                     </Link>
@@ -82,28 +72,28 @@ export function Navbar() {
             </nav>
 
             {/* Call to action & Mobile Toggle */}
-            <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-6">
-                <a 
+            <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-4">
+                <a
                   href="tel:+917279919201"
-                  className="flex items-center gap-2 text-sm font-semibold text-zinc-700 hover:text-blue-600 transition-colors"
+                  className="flex items-center gap-2 text-base font-semibold text-blue-200 hover:text-white transition-colors whitespace-nowrap shrink-0"
                 >
-                  <Phone size={16} className="text-blue-600" />
+                  <Phone size={20} className="text-blue-300 shrink-0" />
                   +91 72799 19201
                 </a>
                 <Link
                   href="/quote"
-                  className="group relative inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-600/20"
+                  className="group relative inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-6 py-2.5 rounded-full text-base font-semibold overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-white/10 hover:shadow-white/20"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
                     Get Quote
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    <ArrowRight size={48} className="transition-transform group-hover:translate-x-1 shrink-0" />
                   </span>
                 </Link>
               </div>
 
               <button
-                className="md:hidden p-2 text-zinc-950 -mr-2"
+                className="md:hidden p-2 text-white -mr-2"
                 onClick={() => setIsMobileMenuOpen(true)}
               >
                 <Menu size={24} />
@@ -132,7 +122,7 @@ export function Navbar() {
                 <X size={20} />
               </button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto py-8 px-6 flex flex-col gap-6">
               {navLinks.map((link) => {
                 const isActive = link.href === "/" ? pathname === "/" : pathname.includes(link.href);
@@ -140,9 +130,8 @@ export function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`text-2xl font-semibold tracking-tight ${
-                      isActive ? "text-blue-600" : "text-zinc-900"
-                    }`}
+                    className={`text-2xl font-semibold tracking-tight ${isActive ? "text-blue-600" : "text-zinc-900"
+                      }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}

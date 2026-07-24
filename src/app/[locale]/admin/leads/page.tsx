@@ -31,7 +31,7 @@ export default function LeadsPage() {
       case "New": return "bg-blue-50 text-blue-700 border-blue-200/60";
       case "Contacted": return "bg-amber-50 text-amber-700 border-amber-200/60";
       case "Converted": return "bg-emerald-50 text-emerald-700 border-emerald-200/60";
-      case "Lost": return "bg-red-50 text-red-700 border-red-200/60";
+      case "Lost": return "bg-blue-50 text-blue-700 border-blue-200/60";
       default: return "bg-zinc-50 text-zinc-700 border-zinc-200/60";
     }
   };
@@ -141,7 +141,7 @@ export default function LeadsPage() {
                       <button className="p-2 text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 rounded-lg transition-colors">
                         <Edit size={14} />
                       </button>
-                      <button className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                      <button className="p-2 text-zinc-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
                         <Trash2 size={14} />
                       </button>
                     </div>

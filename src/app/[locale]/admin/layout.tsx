@@ -74,7 +74,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="px-3 py-4 border-t border-zinc-100">
           <button 
             onClick={() => window.location.href = "/admin/login"}
-            className="flex items-center gap-3 px-3 py-2.5 w-full text-left text-sm font-medium text-zinc-500 hover:bg-red-50 hover:text-red-600 rounded-xl transition-colors"
+            className="flex items-center gap-3 px-3 py-2.5 w-full text-left text-sm font-medium text-zinc-500 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors"
           >
             <LogOut size={18} />
             Logout

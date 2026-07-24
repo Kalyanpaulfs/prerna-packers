@@ -2,10 +2,26 @@
 
 import { ArrowRight, Box, ShieldCheck, Clock, Users, IndianRupee, FileLock } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function Hero() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [
+    "/images/hero_movers.png",
+    "/images/slider_1_1784926695452.png",
+    "/images/slider_2_1784926705048.png",
+    "/images/slider_4_1784926725221.png"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-zinc-50/50">
       {/* Subtle Background Elements */}
@@ -17,10 +33,10 @@ export function Hero() {
       <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-7xl">
         
         {/* Main 2-Column Hero Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center mb-16 lg:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16 lg:mb-24">
           
           {/* Left Column - Text Content */}
-          <div className="flex flex-col items-start text-left">
+          <div className="lg:col-span-5 flex flex-col items-start text-left">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,11 +51,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-              className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tight text-zinc-950 mb-6 leading-[1.05]"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 mb-6 leading-[1.1]"
             >
-              Move forward <br className="hidden md:block" />
-              without the <span className="text-blue-600 relative inline-block">
-                friction.
+              Moving Memories, <br className="hidden md:block" />
+              Not Just <span className="text-blue-600 relative inline-block">
+                Boxes.
                 {/* Simulated curved underline */}
                 <svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-3 md:h-5 text-blue-600" viewBox="0 0 200 20" preserveAspectRatio="none">
                   <path d="M0,10 Q100,20 200,10" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
@@ -100,29 +116,36 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column - Image */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl"
-          >
-            <Image 
-              src="/images/hero_movers.png" 
-              alt="Professional movers packing a box near a Prerna Packers and Movers truck" 
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* Right Column - Image Carousel */}
+          <div className="lg:col-span-7 relative w-full h-[250px] lg:h-[350px] rounded-3xl overflow-hidden shadow-2xl">
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={currentImage}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image 
+                  src={images[currentImage]} 
+                  alt="Prerna Packers and Movers professional relocation service" 
+                  fill
+                  className="object-cover"
+                  priority={currentImage === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
+            
             {/* Gradient Overlay for subtle shadowing */}
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-transparent mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-transparent mix-blend-multiply pointer-events-none" />
             
             {/* Floating Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-              className="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[220px]"
+              className="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[220px] z-10"
             >
               <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0 shadow-inner">
                 <ShieldCheck className="text-blue-600" size={24} />
@@ -132,7 +155,7 @@ export function Hero() {
                 <span className="text-xs font-semibold text-zinc-600 leading-tight">Safe & Secure<br/>Relocation</span>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
 
         </div>
 
