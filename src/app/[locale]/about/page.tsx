@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center mx-4 md:mx-8 rounded-[2.5rem] overflow-hidden shadow-2xl border border-zinc-200/50">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/service_intercity_moving_1784944715087.png"
+            src="/images/intercity_final.png"
             alt="About Prerna Packers and Movers"
             fill
             priority

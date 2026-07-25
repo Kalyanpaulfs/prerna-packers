@@ -5,8 +5,6 @@ import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
 
 const reasons = [
-  "GPS Enabled Fleet for Real-time Tracking",
-  "Premium 5-Layer Packing Materials",
   "100% Transparent Pricing — No Hidden Charges",
   "Free Doorstep Survey & Consultation",
   "Dedicated Relocation Manager",
@@ -17,9 +15,9 @@ const reasons = [
 
 const stats = [
   { value: "50k+", label: "Moves completed" },
-  { value: "15+", label: "Years of trust" },
+  { value: "20+", label: "Years of trust" },
   { value: "4.9", label: "Customer rating" },
-  { value: "200+", label: "Cities covered" },
+  { value: "500+", label: "Cities covered" },
 ];
 
 export function WhyChooseUs() {

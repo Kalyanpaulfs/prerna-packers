@@ -8,13 +8,13 @@ import { ArrowRight, ShieldCheck, Award, ThumbsUp } from "lucide-react";
 
 const getCardImage = (index: number) => {
   switch (index % 6) {
-    case 0: return "/images/service_home_relocation_1784944545275.png";
-    case 1: return "/images/service_office_relocation_1784944555531.png";
-    case 2: return "/images/service_vehicle_transport_1784944566776.png";
-    case 3: return "/images/service_packing_1784944579860.png";
-    case 4: return "/images/service_intercity_moving_1784944715087.png";
-    case 5: return "/images/service_warehouse_storage_1784944727056.png";
-    default: return "/images/service_home_relocation_1784944545275.png";
+    case 0: return "/images/home_relocation_final.png";
+    case 1: return "/images/office_relocation_new.png";
+    case 2: return "/images/vehicle_transport_red_truck.png";
+    case 3: return "/images/premium_packing_new.png";
+    case 4: return "/images/intercity_final.png";
+    case 5: return "/images/warehouse_storage_new.png";
+    default: return "/images/home_relocation_final.png";
   }
 };
 

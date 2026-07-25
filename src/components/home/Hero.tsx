@@ -7,9 +7,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const HERO_IMAGES = [
-  "/images/prerna_real_truck_1784943313016.png",
-  "/images/prerna_real_movers_1784943332030.png",
-  "/images/prerna_real_boxes_1784943352192.png"
+  "/images/carousel/carousel_1.png",
+  "/images/carousel/carousel_2.png",
+  "/images/carousel/carousel_3.png",
+  "/images/carousel/carousel_4.png",
+  "/images/carousel/carousel_5.png"
 ];
 
 export function Hero() {
@@ -140,7 +142,7 @@ export function Hero() {
                   alt="Prerna Packers and Movers professional relocation service" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority={currentImage === 0}
                 />
               </motion.div>

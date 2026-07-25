@@ -24,7 +24,7 @@ export default function CitiesPage() {
       <section className="relative h-[70vh] min-h-[600px] flex items-center mx-4 md:mx-8 rounded-[2.5rem] overflow-hidden shadow-2xl border border-zinc-800">
         <div className="absolute inset-0 z-0 bg-zinc-950">
           <Image 
-            src="/images/service_intercity_moving_1784944715087.png"
+            src="/images/intercity_final.png"
             alt="Pan-India Logistics Network"
             fill
             sizes="100vw"

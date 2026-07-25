@@ -51,12 +51,12 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
 
   const getCardImage = (index: number) => {
     switch (index % 6) {
-      case 0: return "/images/service_home_relocation_1784944545275.png";
-      case 1: return "/images/service_office_relocation_1784944555531.png";
-      case 2: return "/images/service_vehicle_transport_1784944566776.png";
-      case 3: return "/images/service_packing_1784944579860.png";
-      case 4: return "/images/service_intercity_moving_1784944715087.png";
-      case 5: return "/images/service_warehouse_storage_1784944727056.png";
+      case 0: return "/images/home_relocation_final.png";
+      case 1: return "/images/office_relocation_new.png";
+      case 2: return "/images/vehicle_transport_red_truck.png";
+      case 3: return "/images/premium_packing_new.png";
+      case 4: return "/images/intercity_final.png";
+      case 5: return "/images/warehouse_storage_new.png";
       default: return null;
     }
   };
@@ -66,15 +66,15 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
       case 0:
         return "md:col-span-2 md:row-span-2 text-white shadow-xl shadow-zinc-900/10";
       case 1:
-        return "md:col-span-2 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
+        return "md:col-span-2 md:row-span-2 text-white shadow-xl shadow-zinc-900/10";
       case 2:
-        return "md:col-span-1 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
+        return "md:col-span-2 md:row-span-1 text-white shadow-xl shadow-zinc-900/10";
       case 3:
-        return "md:col-span-1 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
+        return "md:col-span-2 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
       case 4:
-        return "md:col-span-1 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
+        return "md:col-span-2 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
       case 5:
-        return "md:col-span-1 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
+        return "md:col-span-2 md:row-span-1 text-white shadow-lg shadow-zinc-900/10";
       default:
         return "md:col-span-1 md:row-span-1 bg-white text-zinc-950 border border-zinc-200/60";
     }
@@ -85,12 +85,12 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
   };
 
   const getTitleClasses = (index: number) => {
-    if (index % 6 === 0) return "text-white text-2xl md:text-3xl lg:text-4xl drop-shadow-md";
+    if (index % 6 === 0 || index % 6 === 1) return "text-white text-2xl md:text-3xl lg:text-4xl drop-shadow-md";
     return "text-white text-xl drop-shadow-md";
   };
 
   const getDescriptionClasses = (index: number) => {
-    if (index % 6 === 0) return "text-zinc-200 text-base md:text-lg max-w-md mt-4 drop-shadow-sm";
+    if (index % 6 === 0 || index % 6 === 1) return "text-zinc-200 text-base md:text-lg max-w-md mt-4 drop-shadow-sm";
     return "text-zinc-300 text-sm mt-3 drop-shadow-sm";
   };
 
@@ -176,7 +176,7 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className={`absolute inset-0 z-10 transition-colors duration-500 ${
-                      index % 6 === 0 ? "bg-gradient-to-t from-zinc-950/90 via-zinc-900/60 to-zinc-900/20 group-hover:from-blue-950/90" :
+                      (index % 6 === 0 || index % 6 === 1) ? "bg-gradient-to-t from-zinc-950/90 via-zinc-900/60 to-zinc-900/20 group-hover:from-blue-950/90" :
                       "bg-zinc-900/60 group-hover:bg-zinc-900/70"
                     }`} />
                   </>

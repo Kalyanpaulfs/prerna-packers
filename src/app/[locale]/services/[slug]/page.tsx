@@ -11,7 +11,7 @@ const serviceData: Record<string, any> = {
   "home-relocation": {
     title: "Home Relocation",
     subtitle: "Premium household shifting with meticulous care.",
-    image: "/images/service_home_relocation_1784944545275.png",
+    image: "/images/home_relocation_final.png",
     description: "Our comprehensive home relocation service is designed to eliminate the stress of moving. We treat your personal belongings with the utmost respect, using specialized multi-layer packing materials to ensure every fragile item, furniture piece, and memory arrives safely at your new doorstep.",
     features: [
       { title: "5-Layer Premium Packing", desc: "Bubble wrap, corrugated sheets, stretch film, carton boxes, and foam.", icon: Package },
@@ -23,7 +23,7 @@ const serviceData: Record<string, any> = {
   "office-relocation": {
     title: "Office Relocation",
     subtitle: "Seamless corporate moves with zero operational downtime.",
-    image: "/images/service_office_relocation_1784944555531.png",
+    image: "/images/office_relocation_new.png",
     description: "Relocating an office requires military precision. We specialize in moving IT infrastructure, confidential documents, and ergonomic furniture over a weekend, ensuring your business is fully operational by Monday morning.",
     features: [
       { title: "Server & IT Relocation", desc: "Specialized antistatic packing for servers and computer peripherals.", icon: Shield },
@@ -35,10 +35,10 @@ const serviceData: Record<string, any> = {
   "vehicle-transport": {
     title: "Vehicle Transport",
     subtitle: "Secure, enclosed transportation for your prized vehicles.",
-    image: "/images/service_vehicle_transport_1784944566776.png",
+    image: "/images/vehicle_transport_red_truck.png",
     description: "Your vehicle is more than just a mode of transport. We use specialized, hydraulic-lift enclosed car carriers and customized bike stands to ensure your vehicle is transported without a single scratch, sheltered from weather and road debris.",
     features: [
-      { title: "Enclosed Carriers", desc: "Protection from dust, rain, and road debris during transit.", icon: Truck },
+      { title: "Zero-Scratch Vehicle Transport", desc: "Specialized hydraulic-lift carriers designed for the ultimate protection of your prized vehicles.", icon: Truck },
       { title: "Door-to-Door Delivery", desc: "We pick up from your current address and deliver directly to your new one.", icon: MapPin },
       { title: "Comprehensive Insurance", desc: "Full coverage transit insurance for complete peace of mind.", icon: Shield },
       { title: "Wheel-Chocking System", desc: "Advanced securing mechanisms to prevent any internal movement.", icon: CheckCircle2 }
@@ -47,7 +47,7 @@ const serviceData: Record<string, any> = {
   "packing": {
     title: "Packing & Unpacking",
     subtitle: "Professional packing services for maximum protection.",
-    image: "/images/service_packing_1784944579860.png",
+    image: "/images/premium_packing_new.png",
     description: "Don't want the hassle of moving a whole house but need help packing? Our team of trained packers uses export-quality materials to pack your belongings, categorizing and labeling everything for a seamless unpacking experience.",
     features: [
       { title: "Export-Quality Materials", desc: "High-grade corrugated boxes, edge guards, and custom crates.", icon: Shield },
@@ -59,7 +59,7 @@ const serviceData: Record<string, any> = {
   "intercity": {
     title: "Intercity Moving",
     subtitle: "Reliable long-distance relocation across the country.",
-    image: "/images/service_intercity_moving_1784944715087.png",
+    image: "/images/intercity_final.png",
     description: "Moving to a new state brings its own set of logistical challenges. With our extensive nationwide network and dedicated long-haul fleet, we guarantee a smooth, transparent, and timely interstate relocation.",
     features: [
       { title: "Dedicated Fleet", desc: "Exclusive trucks for your belongings without transshipment.", icon: Truck },
@@ -71,7 +71,7 @@ const serviceData: Record<string, any> = {
   "storage": {
     title: "Warehouse Storage",
     subtitle: "Secure, climate-controlled storage facilities.",
-    image: "/images/service_warehouse_storage_1784944727056.png",
+    image: "/images/warehouse_storage_new.png",
     description: "Need a safe place for your belongings while you settle in? Our premium warehouse facilities offer short-term and long-term storage solutions with round-the-clock security, pest control, and climate management.",
     features: [
       { title: "24/7 CCTV Surveillance", desc: "Round-the-clock monitoring and strict access control.", icon: Shield },

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const trustFactors = [
   { icon: Shield, label: "Fully Insured", sub: "100% Protection" },
-  { icon: Award, label: "ISO Certified", sub: "Quality Assured" },
+  { icon: Award, label: "GST Certified", sub: "Quality Assured" },
   { icon: Clock, label: "On-Time Delivery", sub: "Zero Delays" },
   { icon: Star, label: "4.9/5 Rating", sub: "Based on 2k+ reviews" },
 ];
