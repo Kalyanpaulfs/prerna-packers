@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/routing";
 import { Mail, Phone, MapPin, MoveRight } from "lucide-react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -9,18 +10,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-white/20 blur-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300" />
-                <span className="relative font-black text-xl italic tracking-tighter pr-1">P</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-xl text-white leading-none tracking-tight">
-                  PRERNA
-                </span>
-                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-[0.2em] mt-1">
-                  Packers & Movers
-                </span>
+            <Link href="/" className="inline-flex items-center group mb-6 hover:scale-105 transition-all duration-300">
+              <div className="relative w-[280px] h-[80px]">
+                <Image src="/prerna-logo.png" alt="Prerna Packers Logo" fill className="object-contain object-left" priority />
               </div>
             </Link>
             <p className="text-sm text-zinc-400 leading-relaxed font-medium">

@@ -6,28 +6,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const HERO_IMAGES = [
+  "/images/prerna_real_truck_1784943313016.png",
+  "/images/prerna_real_movers_1784943332030.png",
+  "/images/prerna_real_boxes_1784943352192.png"
+];
+
 export function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    "/images/hero_movers.png",
-    "/images/slider_1_1784926695452.png",
-    "/images/slider_2_1784926705048.png",
-    "/images/slider_4_1784926725221.png"
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
+      setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-zinc-50/50">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-100/40 to-transparent rounded-full blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none" />
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-zinc-200/40 to-transparent rounded-full blur-3xl -translate-y-1/4 -translate-x-1/4 pointer-events-none" />
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
+      {/* Premium Mesh Gradient Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-100/80 via-white/50 to-slate-50" />
+        
+        {/* Animated glowing orbs */}
+        <div className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-blue-300/30 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
+        <div className="absolute top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] bg-indigo-300/20 rounded-full blur-[120px] mix-blend-multiply pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[50vw] h-[50vw] max-w-[500px] max-h-[500px] bg-sky-200/30 rounded-full blur-[100px] mix-blend-multiply pointer-events-none" />
+        
+        {/* Grid pattern overlay for texture */}
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] bg-repeat pointer-events-none" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-7xl">
@@ -128,9 +136,10 @@ export function Hero() {
                 className="absolute inset-0"
               >
                 <Image 
-                  src={images[currentImage]} 
+                  src={HERO_IMAGES[currentImage]} 
                   alt="Prerna Packers and Movers professional relocation service" 
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   priority={currentImage === 0}
                 />

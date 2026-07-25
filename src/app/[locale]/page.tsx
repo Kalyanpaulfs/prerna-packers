@@ -4,6 +4,7 @@ import { TrustBadges } from "@/components/home/TrustBadges";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { CTASection } from "@/components/home/CTASection";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <ServicesSection />
       <WhyChooseUs />
       <HowItWorks />
+      <Testimonials />
       <CTASection />
     </>
   );

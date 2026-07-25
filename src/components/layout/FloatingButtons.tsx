@@ -1,17 +1,18 @@
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function FloatingButtons() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/917279919201"
+        href="https://wa.me/917279919201?text=Hi%20Prerna%20Packers!%20I%20would%20like%20to%20get%20a%20cost%20estimate%20for%20my%20relocation."
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-[#25D366] text-white rounded-2xl flex items-center justify-center shadow-xl shadow-[#25D366]/20 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
         aria-label="Chat on WhatsApp"
       >
-        <MessageCircle size={24} />
+        <FaWhatsapp size={28} />
       </a>
       
       {/* Call Button */}
