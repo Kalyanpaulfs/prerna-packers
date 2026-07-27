@@ -67,7 +67,7 @@ export async function POST(request: Request) {
     // Replace 'owner@prernapackers.com' with the email address where you want to receive leads
     const { data: responseData, error } = await resend.emails.send({
       from: 'Prerna Packers Quote System <onboarding@resend.dev>', 
-      to: ['prernapackersleads@gmail.com'], // In production, change this to your actual email
+      to: ['pratikrajhans61@gmail.com'], // In production, change this to your actual email
       subject: `New Lead: Move from ${pickupLocation} by ${name}`,
       html: htmlContent,
     });

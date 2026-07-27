@@ -14,7 +14,7 @@ const reasons = [
 ];
 
 const stats = [
-  { value: "50k+", label: "Moves completed" },
+  { value: "30k+", label: "Moves completed" },
   { value: "20+", label: "Years of trust" },
   { value: "4.9", label: "Customer rating" },
   { value: "500+", label: "Cities covered" },
@@ -26,13 +26,13 @@ export function WhyChooseUs() {
       {/* Background Glows */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-      
+
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02] bg-repeat pointer-events-none invert" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-          
+
           {/* Left side — Content */}
           <div className="flex-1 w-full">
             <motion.div
@@ -45,13 +45,13 @@ export function WhyChooseUs() {
                 The Prerna Advantage
               </div>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
-                Why companies and <br className="hidden md:block"/>families trust us.
+                Why companies and <br className="hidden md:block" />families trust us.
               </h2>
               <p className="text-lg text-zinc-400 font-medium leading-relaxed max-w-xl">
                 We don't just move boxes — we move lives. Our commitment to excellence and customer-first approach makes us the preferred choice for hassle-free relocation across India.
               </p>
             </motion.div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-12">
               {reasons.map((reason, index) => (
                 <motion.div
@@ -100,7 +100,7 @@ export function WhyChooseUs() {
                 >
                   {/* Subtle hover glow inside the card */}
                   <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-500/0 group-hover:to-blue-500/10 transition-all duration-500" />
-                  
+
                   <div className="relative z-10 text-4xl md:text-5xl font-black text-white tracking-tighter mb-2 drop-shadow-md">
                     {stat.value}
                   </div>

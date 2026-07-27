@@ -3,18 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { MapPin, Navigation, Globe, Zap, ShieldCheck, ArrowRight, Building2, Truck } from "lucide-react";
+import { MapPin, Navigation, Globe, Zap, ShieldCheck, ArrowRight, Truck } from "lucide-react";
 
-const majorHubs = [
-  { name: "Delhi NCR", desc: "Corporate Hub & Northern Base", color: "from-blue-600 to-sky-400" },
-  { name: "Mumbai", desc: "Financial Capital & Western Hub", color: "from-indigo-600 to-blue-400" },
-  { name: "Bangalore", desc: "Tech Capital & Southern Core", color: "from-sky-500 to-cyan-300" },
-  { name: "Hyderabad", desc: "IT Corridor & Logistics Center", color: "from-violet-600 to-purple-400" },
-  { name: "Chennai", desc: "Manufacturing Hub & Port City", color: "from-emerald-500 to-teal-400" },
-  { name: "Kolkata", desc: "Eastern Gateway & Trading Hub", color: "from-rose-500 to-pink-400" },
-  { name: "Pune", desc: "Industrial Center & Auto Hub", color: "from-amber-500 to-orange-400" },
-  { name: "Ahmedabad", desc: "Commercial Center & Textile Hub", color: "from-cyan-600 to-blue-500" },
-];
+
 
 export default function CitiesPage() {
   return (
@@ -43,7 +34,7 @@ export default function CitiesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest text-blue-400 uppercase mb-6 backdrop-blur-md"
             >
-              <Globe size={16} /> 15+ Years of Excellence
+              <Globe size={16} /> 20+ Years of Excellence
             </motion.div>
             
             <motion.h1 
@@ -90,61 +81,6 @@ export default function CitiesPage() {
         </div>
       </section>
 
-      {/* 2. Major Logistics Hubs Grid (Redesigned Premium UI) */}
-      <section className="py-24 md:py-32 relative bg-[#0B1120] mx-4 md:mx-8 rounded-[2.5rem] mt-24">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 right-0 w-full h-[500px] bg-[url('/grid-pattern.svg')] opacity-[0.05] bg-repeat pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold tracking-widest text-blue-400 uppercase mb-6">
-              Strategic Network
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">
-              Primary Nodal Hubs
-            </h2>
-            <p className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed">
-              Our infrastructure operates through 8 hyper-connected metropolitan hubs, ensuring zero-delay dispatch and receiving across the entire country.
-            </p>
-          </div>
-
-          {/* Premium Balanced Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {majorHubs.map((hub, i) => (
-              <motion.div
-                key={hub.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-blue-500/30 transition-all duration-500 overflow-hidden"
-              >
-                {/* Glowing Hover Effect */}
-                <div className={`absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-br ${hub.color} rounded-full blur-[80px] opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none`} />
-                
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div className="flex justify-between items-start mb-12">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10 shadow-lg group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-500">
-                      <Building2 className="text-white" size={20} />
-                    </div>
-                    <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_2px_rgba(59,130,246,0.5)] animate-pulse" />
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-black text-white group-hover:text-blue-300 transition-colors duration-300 mb-2 text-2xl">
-                      {hub.name}
-                    </h3>
-                    <p className="text-zinc-400 font-medium group-hover:text-zinc-300 transition-colors duration-300">
-                        {hub.desc}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 3. Tier 2 & 3 Abstract Coverage Section */}
       <section className="py-24 relative overflow-hidden bg-zinc-950 mx-4 md:mx-8 rounded-[2.5rem]">

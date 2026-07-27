@@ -13,10 +13,10 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: "2010", title: "Founded in Munger", desc: "Started as a small local moving company with a vision for excellence." },
+    { year: "2003", title: "Founded in Munger", desc: "Started as a small local moving company with a vision for excellence." },
     { year: "2014", title: "Pan-India Expansion", desc: "Expanded operations to cover major cities across India." },
     { year: "2018", title: "Fleet Modernization", desc: "Invested in GPS-enabled, climate-controlled vehicles." },
-    { year: "2024", title: "50,000+ Moves", desc: "Crossed 50,000 successful relocations with a 4.9/5 rating." },
+    { year: "2024", title: "30,000+ Moves", desc: "Crossed 30,000 successful relocations with a 4.9/5 rating." },
   ];
 
   return (
@@ -59,7 +59,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-zinc-300 font-medium leading-relaxed drop-shadow-md max-w-xl"
             >
-              Moving families and businesses with unparalleled care and logistical excellence since 2010.
+              Moving families and businesses with unparalleled care and logistical excellence since 2003.
             </motion.p>
           </div>
         </div>
@@ -105,10 +105,10 @@ export default function AboutPage() {
                 className="prose prose-lg text-zinc-500 font-medium leading-relaxed mb-16"
               >
                 <p>
-                  Founded in 2010 in Munger, Bihar, Prerna Packers and Movers started with a simple vision: to completely eliminate the friction and stress associated with relocation. What began as a small, highly-dedicated local moving company has organically grown into a robust Pan-India logistics network.
+                  Founded in 2003 in Munger, Bihar, Prerna Packers and Movers started with a simple vision: to completely eliminate the friction and stress associated with relocation. What began as a small, highly-dedicated local moving company has organically grown into a robust Pan-India logistics network.
                 </p>
                 <p>
-                  Over the past 15+ years, we have successfully completed over 50,000 moves. We do not just move boxes; we transport lives, careers, and critical business infrastructure. Our success is directly attributed to our unwavering commitment to quality, intensive staff training programs, and heavy investments in a state-of-the-art, GPS-enabled fleet.
+                  Over the past 20+ years, we have successfully completed over 30,000 moves. We do not just move boxes; we transport lives, careers, and critical business infrastructure. Our success is directly attributed to our unwavering commitment to quality, intensive staff training programs, and heavy investments in a state-of-the-art, GPS-enabled fleet.
                 </p>
               </motion.div>
 

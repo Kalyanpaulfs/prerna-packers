@@ -43,7 +43,7 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
     {
       id: "4",
       title: "Premium Packing",
-      description: "Industry-leading 5-layer export grade packing materials. We safeguard your fragile items, antiques, and electronics against all transit shocks.",
+      description: "Industry-leading 3-layer export grade packing materials. We safeguard your fragile items, antiques, and electronics against all transit shocks.",
       icon: "Package",
       href: "/services/packing"
     }
@@ -90,14 +90,14 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
   };
 
   const getDescriptionClasses = (index: number) => {
-    if (index % 6 === 0 || index % 6 === 1) return "text-zinc-200 text-base md:text-lg max-w-md mt-4 drop-shadow-sm";
-    return "text-zinc-300 text-sm mt-3 drop-shadow-sm";
+    if (index % 6 === 0 || index % 6 === 1) return "hidden md:block text-zinc-200 text-base md:text-lg max-w-md mt-4 drop-shadow-sm";
+    return "hidden md:block text-zinc-300 text-sm mt-3 drop-shadow-sm";
   };
 
   return (
     <section className={`bg-[#F8FAFC] relative overflow-hidden ${hideHeader ? 'py-12 md:py-20' : 'py-24 md:py-32'}`}>
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
-      
+
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         {!hideHeader && (
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
@@ -110,16 +110,16 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
               >
                 Our Solutions
               </motion.div>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 mb-6 tracking-tight leading-[1.1]"
               >
-                Services engineered <br/>
+                Services engineered <br />
                 for seamless transitions.
               </motion.h2>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -164,21 +164,20 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
                 className={`${getGridClasses(index)} rounded-3xl p-8 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500 flex flex-col`}
               >
                 <Link href={service.href} className="absolute inset-0 z-30" aria-label={service.title}></Link>
-                
+
                 {/* Background Image and Gradient Overlay for Image Cards */}
                 {isImageCard && (
                   <>
-                    <Image 
+                    <Image
                       src={bgImage}
                       alt={service.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className={`absolute inset-0 z-10 transition-colors duration-500 ${
-                      (index % 6 === 0 || index % 6 === 1) ? "bg-gradient-to-t from-zinc-950/90 via-zinc-900/60 to-zinc-900/20 group-hover:from-blue-950/90" :
-                      "bg-zinc-900/60 group-hover:bg-zinc-900/70"
-                    }`} />
+                    <div className={`absolute inset-0 z-10 transition-colors duration-500 ${(index % 6 === 0 || index % 6 === 1) ? "bg-gradient-to-t from-zinc-950/90 via-zinc-900/60 to-zinc-900/20 group-hover:from-blue-950/90" :
+                        "bg-zinc-900/60 group-hover:bg-zinc-900/70"
+                      }`} />
                   </>
                 )}
 
@@ -186,7 +185,7 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
                 {!isImageCard && (
                   <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-100/50 blur-3xl rounded-full pointer-events-none group-hover:bg-blue-200/50 transition-colors duration-700" />
                 )}
-                
+
                 <div className="relative z-20 flex flex-col h-full justify-between">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${getIconContainerClasses(index)}`}>
                     <IconComponent size={28} strokeWidth={1.5} />
@@ -200,11 +199,10 @@ export function ServicesSection({ hideHeader = false }: ServicesSectionProps) {
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Overlay Arrow */}
-                <div className={`absolute bottom-8 right-8 w-10 h-10 rounded-full flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-20 ${
-                  isImageCard ? "bg-white/20 backdrop-blur-md text-white border border-white/20 shadow-lg shadow-black/20" : "bg-blue-50 text-blue-600 border border-blue-100"
-                }`}>
+                <div className={`absolute bottom-8 right-8 w-10 h-10 rounded-full flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-20 ${isImageCard ? "bg-white/20 backdrop-blur-md text-white border border-white/20 shadow-lg shadow-black/20" : "bg-blue-50 text-blue-600 border border-blue-100"
+                  }`}>
                   <ArrowRight size={18} />
                 </div>
               </motion.div>
