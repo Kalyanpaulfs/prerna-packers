@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
                 If you have any questions about this privacy policy or our privacy practices, please contact us at: <br/><br/>
                 <strong>Prerna Packers and Movers</strong><br/>
                 Munger, Bihar, India 811201<br/>
-                Email: hello@prernapackers.com<br/>
+                Email: pratikrajhans61@gmail.com<br/>
                 Phone: +91 72799 19201
               </p>
             </section>
