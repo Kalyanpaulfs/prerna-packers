@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const contactCards = [
   { icon: Phone, title: "Call Us", lines: ["+91 72799 19201", "Mon — Sat: 9:00 AM – 8:00 PM"] },
-  { icon: Mail, title: "Email Us", lines: ["hello@prernapackers.com", "sales@prernapackers.com"] },
+  { icon: Mail, title: "Email Us", lines: ["pratikrajhans61@gmail.com"] },
   { icon: MapPin, title: "Head Office", lines: ["Prerna Packers & Movers", "Munger, Bihar, India 811201"] },
 ];
 

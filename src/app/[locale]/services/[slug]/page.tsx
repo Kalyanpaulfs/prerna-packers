@@ -14,7 +14,7 @@ const serviceData: Record<string, any> = {
     image: "/images/home_relocation_final.png",
     description: "Our comprehensive home relocation service is designed to eliminate the stress of moving. We treat your personal belongings with the utmost respect, using specialized multi-layer packing materials to ensure every fragile item, furniture piece, and memory arrives safely at your new doorstep.",
     features: [
-      { title: "5-Layer Premium Packing", desc: "Bubble wrap, corrugated sheets, stretch film, carton boxes, and foam.", icon: Package },
+      { title: "3-Layer Premium Packing", desc: "Bubble wrap, corrugated sheets, stretch film, carton boxes, and foam.", icon: Package },
       { title: "Zero-Damage Guarantee", desc: "Fully insured moves with specialized handling for antiques and electronics.", icon: Shield },
       { title: "Real-time Tracking", desc: "GPS-enabled fleet allowing you to track your household goods 24/7.", icon: MapPin },
       { title: "On-time Delivery", desc: "Strict adherence to schedules ensuring you can settle into your new home instantly.", icon: Clock }
@@ -96,7 +96,7 @@ export default function ServiceDetail() {
       {/* Premium Hero Section - Inset to prevent navbar overlap */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center mx-4 md:mx-8 rounded-[2.5rem] overflow-hidden shadow-2xl">
         <div className="absolute inset-0 z-0">
-          <Image 
+          <Image
             src={data.image}
             alt={data.title}
             fill
@@ -105,7 +105,7 @@ export default function ServiceDetail() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-900/70 to-zinc-900/40" />
         </div>
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="max-w-2xl">
             <nav className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-6">
@@ -115,15 +115,15 @@ export default function ServiceDetail() {
               <ChevronRight size={14} />
               <span className="text-white">{data.title}</span>
             </nav>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-6 drop-shadow-lg"
             >
               {data.title}
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -138,7 +138,7 @@ export default function ServiceDetail() {
       {/* Content Section */}
       <section className="py-24 bg-gradient-to-br from-slate-50 via-[#F3F6FA] to-white relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 blur-3xl rounded-full pointer-events-none" />
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-16">
             <div className="lg:w-1/2">
@@ -150,7 +150,7 @@ export default function ServiceDetail() {
               >
                 Service Overview
               </motion.div>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -158,7 +158,7 @@ export default function ServiceDetail() {
               >
                 Engineered for maximum safety and precision.
               </motion.h2>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -167,8 +167,8 @@ export default function ServiceDetail() {
               >
                 {data.description}
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -183,7 +183,7 @@ export default function ServiceDetail() {
                 </Link>
               </motion.div>
             </div>
-            
+
             <div className="lg:w-1/2">
               <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                 {data.features.map((feature: any, index: number) => {
@@ -199,7 +199,7 @@ export default function ServiceDetail() {
                     >
                       {/* Hover glow effect */}
                       <div className="absolute -top-12 -right-12 w-32 h-32 bg-blue-100/50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                      
+
                       <div className="relative z-10">
                         <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-6">
                           <Icon size={24} />

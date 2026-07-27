@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { Mail, Phone, MapPin, MoveRight } from "lucide-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+
 import Image from "next/image";
 
 export function Footer() {
@@ -18,12 +18,7 @@ export function Footer() {
             <p className="text-sm text-zinc-400 leading-relaxed font-medium">
               Elite relocation infrastructure. Secure, efficient, and precise moving services engineered for peace of mind.
             </p>
-            <div className="flex gap-4 pt-2">
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 hover:border-white transition-all duration-300"><FaFacebook size={16} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 hover:border-white transition-all duration-300"><FaTwitter size={16} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 hover:border-white transition-all duration-300"><FaInstagram size={16} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 hover:border-white transition-all duration-300"><FaLinkedin size={16} /></a>
-            </div>
+
           </div>
 
           {/* Quick Links */}
@@ -68,7 +63,7 @@ export function Footer() {
                 <div className="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center shrink-0">
                   <Mail size={14} className="text-white" />
                 </div>
-                <span className="text-sm font-medium">hello@prernapackers.com</span>
+                <span className="text-sm font-medium">pratikrajhans61@gmail.com</span>
               </li>
             </ul>
           </div>

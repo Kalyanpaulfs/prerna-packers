@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Priya Sharma",
     role: "Interior Designer",
-    content: "As someone who deals with fragile decor, I was worried. But their 5-layer packing is incredible. Not a single scratch on my delicate items.",
+    content: "As someone who deals with fragile decor, I was worried. But their 3-layer packing is incredible. Not a single scratch on my delicate items.",
     rating: 5,
     initial: "P",
     color: "bg-indigo-500"
@@ -76,7 +76,7 @@ export function Testimonials() {
             >
               Client Success
             </motion.div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function Testimonials() {
             >
               Don't just take <br className="hidden md:block" />our word for it.
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -94,7 +94,7 @@ export function Testimonials() {
               Thousands of families and businesses trust us with their most valuable possessions every single year.
             </motion.p>
           </div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -109,7 +109,7 @@ export function Testimonials() {
         {/* Left and Right Fades for Dark Mode */}
         <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-20 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-20 pointer-events-none" />
-        
+
         {/* Top Marquee (Moves Left) */}
         <div className="flex animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] whitespace-nowrap">
           {[...topRow, ...topRow, ...topRow, ...topRow].map((t, index) => (
@@ -136,11 +136,11 @@ function TestimonialCard({ t }: { t: any }) {
           <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      
+
       <p className="text-zinc-400 font-normal leading-relaxed mb-6 flex-1 text-sm md:text-base">
         "{t.content}"
       </p>
-      
+
       <div className="flex items-center gap-3 mt-auto">
         <div className="w-10 h-10 rounded-full bg-zinc-800 text-zinc-300 font-semibold flex items-center justify-center text-base">
           {t.initial}

@@ -10,7 +10,7 @@ export default function WhyUsPage() {
   const comparison = [
     { label: "Pricing", industry: "Hidden fees & last-minute hikes", prerna: "100% Transparent upfront quotes" },
     { label: "Staff", industry: "Untrained third-party contractors", prerna: "Background-checked, in-house experts" },
-    { label: "Materials", industry: "Used cartons and cheap tape", prerna: "5-layer premium export-grade packing" },
+    { label: "Materials", industry: "Used cartons and cheap tape", prerna: "3-layer premium export-grade packing" },
     { label: "Tracking", industry: "Calling drivers for updates", prerna: "Real-time GPS fleet tracking" },
     { label: "Insurance", industry: "Complicated claims process", prerna: "Instant transit insurance coverage" },
   ];
@@ -20,8 +20,8 @@ export default function WhyUsPage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center mx-4 md:mx-8 rounded-[2.5rem] overflow-hidden shadow-2xl border border-zinc-200/50">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/prerna_real_movers_1784943332030.png"
+          <Image
+            src="/images/prerna_difference_hero.png"
             alt="Why Prerna Packers - Professional Team"
             fill
             sizes="100vw"
@@ -30,18 +30,18 @@ export default function WhyUsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-900/70 to-zinc-900/40" />
         </div>
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="max-w-3xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest text-blue-400 uppercase mb-6 backdrop-blur-sm"
             >
               The Prerna Difference
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -50,7 +50,7 @@ export default function WhyUsPage() {
               Elevating the Standard of <br />
               <span className="text-blue-400">Relocation.</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -65,7 +65,7 @@ export default function WhyUsPage() {
       {/* Asymmetrical Bento Box Grid */}
       <section className="py-24 md:py-32 relative bg-zinc-50">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[80px] pointer-events-none" />
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-16 md:mb-24">
             <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight mb-4">
@@ -77,16 +77,16 @@ export default function WhyUsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(280px,auto)]">
-            
+
             {/* Box 1 (Large) - Zero Damage */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="md:col-span-2 bg-gradient-to-br from-zinc-950 to-[#0B1120] p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden group shadow-xl"
             >
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/20 rounded-full blur-[60px] group-hover:bg-blue-500/30 transition-all duration-500" />
-              
+
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 mb-8 group-hover:scale-110 transition-transform duration-500">
                   <ShieldCheck className="text-blue-400" size={32} />
@@ -94,14 +94,14 @@ export default function WhyUsPage() {
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Zero Damage Guarantee</h3>
                   <p className="text-zinc-400 font-medium text-lg leading-relaxed max-w-md">
-                    We use proprietary 5-layer export-grade packing materials. Your fragile items, antiques, and electronics are protected against all transit shocks.
+                    We use proprietary 3-layer export-grade packing materials. Your fragile items, antiques, and electronics are protected against all transit shocks.
                   </p>
                 </div>
               </div>
             </motion.div>
 
             {/* Box 2 (Small) - In House Staff */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function WhyUsPage() {
             </motion.div>
 
             {/* Box 3 (Small) - Real-time tracking */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -145,7 +145,7 @@ export default function WhyUsPage() {
             </motion.div>
 
             {/* Box 4 (Large) - Transparent Pricing */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -154,7 +154,7 @@ export default function WhyUsPage() {
             >
               <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-indigo-500/30 rounded-full blur-[60px] group-hover:bg-indigo-400/40 transition-all duration-500" />
               <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-400/10 via-transparent to-transparent opacity-50" />
-              
+
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 mb-8 group-hover:scale-110 transition-transform duration-500">
                   <CheckCircle2 className="text-emerald-400" size={32} />
@@ -176,7 +176,7 @@ export default function WhyUsPage() {
       <section className="py-24 md:py-32 bg-[#0B1120] relative overflow-hidden mx-4 md:mx-8 rounded-[2.5rem] mb-10 border border-white/5">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
           <div className="text-center mb-16 md:mb-24">
             <motion.div
@@ -187,19 +187,19 @@ export default function WhyUsPage() {
             >
               <Zap size={14} className="text-blue-400" /> The Reality Check
             </motion.div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]"
             >
-              The Industry Standard vs. <br className="hidden md:block"/><span className="text-blue-400">The Prerna Standard.</span>
+              The Industry Standard vs. <br className="hidden md:block" /><span className="text-blue-400">The Prerna Standard.</span>
             </motion.h2>
           </div>
-          
+
           {/* Comparison Table / Cards */}
           <div className="bg-[#0F172A] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
-            
+
             {/* Headers */}
             <div className="grid grid-cols-1 md:grid-cols-3 border-b border-white/10 bg-[#151E32]">
               <div className="hidden md:block p-6 text-sm font-bold text-zinc-400 uppercase tracking-widest">
@@ -216,8 +216,8 @@ export default function WhyUsPage() {
             {/* Rows */}
             <div className="divide-y divide-white/5">
               {comparison.map((item, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -227,12 +227,12 @@ export default function WhyUsPage() {
                   <div className="p-6 flex items-center justify-center md:justify-start font-bold text-white text-lg border-b border-white/5 md:border-none">
                     {item.label}
                   </div>
-                  
+
                   <div className="p-6 md:border-l border-white/5 flex items-center gap-4 bg-zinc-900/20 text-zinc-400 font-medium">
                     <XCircle className="text-red-400/70 shrink-0 hidden md:block" size={20} />
                     <span className="text-center md:text-left w-full md:w-auto">{item.industry}</span>
                   </div>
-                  
+
                   <div className="p-6 md:border-l border-white/10 flex items-center gap-4 bg-blue-600/5 text-blue-100 font-bold relative overflow-hidden group">
                     <div className="absolute inset-0 bg-blue-500/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
                     <CheckCircle2 className="text-blue-400 shrink-0 hidden md:block relative z-10" size={20} />
@@ -241,7 +241,7 @@ export default function WhyUsPage() {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* CTA row inside table */}
             <div className="grid grid-cols-1 p-8 bg-gradient-to-r from-blue-900/20 to-blue-600/20 border-t border-blue-500/30 text-center">
               <p className="text-white font-bold text-lg md:text-xl mb-6 tracking-tight">Experience the difference for yourself.</p>
