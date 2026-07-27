@@ -124,6 +124,9 @@ export function QuoteCalculator() {
                 <label className="text-sm font-bold text-zinc-700 uppercase tracking-wider">Pickup Pincode <span className="text-red-500">*</span></label>
                 <input 
                   {...register("pickupPincode")}
+                  type="text"
+                  inputMode="numeric"
+                  onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
                   maxLength={6}
                   className="w-full px-5 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none font-medium text-lg"
                   placeholder="e.g. 110001"
@@ -165,6 +168,9 @@ export function QuoteCalculator() {
                 <label className="text-sm font-bold text-zinc-700 uppercase tracking-wider">Destination Pincode <span className="text-red-500">*</span></label>
                 <input 
                   {...register("destinationPincode")}
+                  type="text"
+                  inputMode="numeric"
+                  onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
                   maxLength={6}
                   className="w-full px-5 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none font-medium text-lg"
                   placeholder="e.g. 560001"
@@ -342,6 +348,9 @@ export function QuoteCalculator() {
                   </div>
                   <input 
                     {...register("phone")}
+                    type="text"
+                    inputMode="numeric"
+                    onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
                     maxLength={10}
                     className="w-full pl-12 pr-4 py-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none font-medium text-lg tracking-wider"
                     placeholder="9876543210"
