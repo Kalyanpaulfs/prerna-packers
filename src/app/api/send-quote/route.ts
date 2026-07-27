@@ -62,12 +62,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Simulated success (No API Key)" });
     }
 
-    // Send the email using Resend
-    // Replace 'delivered@resend.dev' with your actual verified domain email (e.g. leads@prernapackers.com)
-    // Replace 'owner@prernapackers.com' with the email address where you want to receive leads
+    // Send the lead email to you
     const { data: responseData, error } = await resend.emails.send({
-      from: 'Prerna Packers Quote System <onboarding@resend.dev>', 
-      to: ['prernapackersleads@gmail.com'], // In production, change this to your actual email
+      from: 'Prerna Packers <quotes@prernapackers.in>', 
+      to: ['pratikrajhans61@gmail.com'], 
       subject: `New Lead: Move from ${pickupLocation} by ${name}`,
       html: htmlContent,
     });
@@ -75,6 +73,29 @@ export async function POST(request: Request) {
     if (error) {
       console.error('Resend error:', error);
       return NextResponse.json({ error }, { status: 400 });
+    }
+
+    // Send a Thank You email to the customer if they provided an email address
+    if (email) {
+      try {
+        await resend.emails.send({
+          from: 'Prerna Packers <quotes@prernapackers.in>', 
+          to: [email],
+          subject: 'Thank you for choosing Prerna Packers!',
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+              <h2 style="color: #2563eb;">Thank you, ${name}!</h2>
+              <p>We have received your request for a premium quote for moving from <strong>${pickupLocation}</strong> to <strong>${destinationLocation}</strong>.</p>
+              <p>Our team is reviewing your details and we will contact you very soon with your customized estimate.</p>
+              <br/>
+              <p>Best regards,</p>
+              <p><strong>The Prerna Packers Team</strong></p>
+            </div>
+          `
+        });
+      } catch (custError) {
+        console.error("Failed to send customer confirmation email:", custError);
+      }
     }
 
     return NextResponse.json({ success: true, data: responseData });
