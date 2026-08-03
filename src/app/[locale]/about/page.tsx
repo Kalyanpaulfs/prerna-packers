@@ -70,23 +70,28 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
-            {/* Left Column: Big Typography & Mission */}
-            <div className="lg:col-span-5">
-              <motion.h2
+            {/* Left Column: Founder Image & Mission */}
+            <div className="lg:col-span-5 flex flex-col">
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-black text-zinc-950 mb-8 tracking-tight leading-[1.1]"
+                className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-zinc-200/50 mb-12 w-full aspect-[4/5]"
               >
-                A legacy built on <br className="hidden md:block" />safeguarding your memories.
-              </motion.h2>
+                <Image 
+                  src="/images/founder.png" 
+                  alt="Founder" 
+                  fill
+                  className="object-cover" 
+                />
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 md:p-10 rounded-[2rem] border border-blue-100 shadow-xl shadow-blue-900/5 relative mt-12"
+                className="bg-gradient-to-br from-blue-50 to-white p-8 md:p-10 rounded-[2rem] border border-blue-100 shadow-xl shadow-blue-900/5 relative mt-auto"
               >
                 <Quote className="absolute -top-6 -left-2 text-blue-200" size={64} />
                 <h3 className="text-xl font-bold text-zinc-950 mb-4 tracking-tight relative z-10">Our Mission</h3>
@@ -105,15 +110,24 @@ export default function AboutPage() {
                 className="prose prose-lg text-zinc-500 font-medium leading-relaxed mb-16"
               >
                 <p>
-                  Founded in 2003 in Munger, Bihar, Prerna Packers and Movers started with a simple vision: to completely eliminate the friction and stress associated with relocation. What began as a small, highly-dedicated local moving company has organically grown into a robust Pan-India logistics network.
+                  Founded in 2003 in Munger, Bihar, Prerna Packers and Movers started with a simple vision: to completely eliminate the friction and stress associated with relocation. The company was established by Mr. Prafull Kumar Rajhans following his retirement from the Indian Air Force in 2002. Drawing upon the discipline and dedication ingrained during his service, he started this service to provide superior, reliable relocation facilities to people.
                 </p>
                 <p>
-                  Over the past 20+ years, we have successfully completed over 30,000 moves. We do not just move boxes; we transport lives, careers, and critical business infrastructure. Our success is directly attributed to our unwavering commitment to quality, intensive staff training programs, and heavy investments in a state-of-the-art, GPS-enabled fleet.
+                  What began as a small, highly-dedicated local moving company has organically grown into a robust Pan-India logistics network. Over the past 20+ years, we have successfully completed over 30,000 moves. We do not just move boxes; we transport lives, careers, and critical business infrastructure. Our success is directly attributed to our unwavering commitment to quality, intensive staff training programs, and heavy investments in a state-of-the-art, GPS-enabled fleet.
                 </p>
               </motion.div>
 
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-black text-zinc-950 mb-12 tracking-tight leading-[1.1]"
+              >
+                A legacy built on <br className="hidden md:block" />safeguarding your memories.
+              </motion.h2>
+
               {/* Modernized Glowing Timeline */}
-              <div className="relative">
+              <div className="relative mt-16">
                 <h3 className="text-2xl font-bold text-zinc-950 mb-10 tracking-tight">Key Milestones</h3>
 
                 {/* Vertical Line */}
